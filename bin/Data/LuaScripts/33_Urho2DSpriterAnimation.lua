@@ -57,7 +57,8 @@ function CreateScene()
     spineNode:SetScale(0.4)
 
     local spineAnimatedSprite = spineNode:CreateComponent("AnimatedSprite2D")
-    spineAnimatedSprite:SetAnimation(spineAnimationSet, spineAnimationSet:GetAnimation(animationIndex), LM_FORCE_LOOPED)
+    spineAnimatedSprite.animationSet = spineAnimationSet
+    spineAnimatedSprite:SetAnimation(spineAnimationSet:GetAnimation(animationIndex), LM_FORCE_LOOPED)
 
     local spriterAnimationSet = cache:GetResource("AnimationSet2D", "Urho2D/imp/imp.scml")
     if spriterAnimationSet == nil then
@@ -68,7 +69,8 @@ function CreateScene()
     spriterNode:SetPosition2D(Vector2(2.0, 0.0))
 
     local spriterAnimatedSprite = spriterNode:CreateComponent("AnimatedSprite2D")
-    spriterAnimatedSprite:SetAnimation(spriterAnimationSet, spriterAnimationSet:GetAnimation(animationIndex), LM_FORCE_LOOPED)
+    spriterAnimatedSprite.animationSet = spriterAnimationSet
+    spriterAnimatedSprite:SetAnimation(spriterAnimationSet:GetAnimation(animationIndex), LM_FORCE_LOOPED)
 end
 
 function CreateInstructions()

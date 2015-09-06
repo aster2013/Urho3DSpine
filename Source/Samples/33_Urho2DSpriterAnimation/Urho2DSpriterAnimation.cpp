@@ -93,7 +93,8 @@ void Urho2DSpriterAnimation::CreateScene()
     spineNode_->SetPosition2D(Vector2(-2.0f, -1.0f));
     spineNode_->SetScale(0.4f);
     AnimatedSprite2D* spineAnimatedSprite = spineNode_->CreateComponent<AnimatedSprite2D>();
-    spineAnimatedSprite->SetAnimation(spineAnimationSet, spineAnimationSet->GetAnimation(spineAnimationIndex_));
+    spineAnimatedSprite->SetAnimationSet(spineAnimationSet);
+    spineAnimatedSprite->SetAnimation(spineAnimationSet->GetAnimation(spineAnimationIndex_));
 
     AnimationSet2D* spriterAnimationSet = cache->GetResource<AnimationSet2D>("Urho2D/imp/imp.scml");
     if (!spriterAnimationSet)
@@ -102,7 +103,8 @@ void Urho2DSpriterAnimation::CreateScene()
     spriterNode_ = scene_->CreateChild("SpriterAnimation");
     spriterNode_->SetPosition2D(Vector2(2.0f, 0.0f));
     AnimatedSprite2D* spriterAnimatedSprite = spriterNode_->CreateComponent<AnimatedSprite2D>();
-    spriterAnimatedSprite->SetAnimation(spriterAnimationSet, spriterAnimationSet->GetAnimation(spriterAnimationIndex_));
+    spriterAnimatedSprite->SetAnimationSet(spriterAnimationSet);
+    spriterAnimatedSprite->SetAnimation(spriterAnimationSet->GetAnimation(spriterAnimationIndex_));
 }
 
 void Urho2DSpriterAnimation::CreateInstructions()

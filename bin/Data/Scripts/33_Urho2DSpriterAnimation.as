@@ -59,7 +59,8 @@ void CreateScene()
     spineNode.SetScale(0.4);
 
     AnimatedSprite2D@ spineAnimatedSprite = spineNode.CreateComponent("AnimatedSprite2D");
-    spineAnimatedSprite.SetAnimation(spineAnimationSet, spineAnimationSet.GetAnimation(spineAnimationIndex), LM_FORCE_LOOPED);
+    spineAnimatedSprite.animationSet = spineAnimationSet;
+    spineAnimatedSprite.SetAnimation(spineAnimationSet.GetAnimation(spineAnimationIndex), LM_FORCE_LOOPED);
 
     AnimationSet2D@ spriterAnimationSet = cache.GetResource("AnimationSet2D", "Urho2D/imp/imp.scml");
     if (spriterAnimationSet is null)
@@ -69,7 +70,8 @@ void CreateScene()
     spriterNode.position2D = Vector2(2.0f, 0.0f);
 
     AnimatedSprite2D@ spriterAnimatedSprite = spriterNode.CreateComponent("AnimatedSprite2D");
-    spriterAnimatedSprite.SetAnimation(spriterAnimationSet, spriterAnimationSet.GetAnimation(spriterAnimationIndex), LM_FORCE_LOOPED);
+    spriterAnimatedSprite.animationSet = spriterAnimationSet;
+    spriterAnimatedSprite.SetAnimation(spriterAnimationSet.GetAnimation(spriterAnimationIndex), LM_FORCE_LOOPED);
 }
 
 void CreateInstructions()
